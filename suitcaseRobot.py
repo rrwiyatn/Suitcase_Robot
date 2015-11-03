@@ -42,9 +42,7 @@ def calibrate(my_camera, count, cal_R, cal_G, cal_B):
 			break
 		my_image = my_camera.grabImage()
 		for y in range (21,54):
-	       #{
 			for x in range (66,97):
-		       #{
 				if (x>=66 and x<=95 and y==21):
 					my_image[x,y] = 255,0,0
 				elif (x==66 and y>=21 and y<=53):
@@ -53,28 +51,21 @@ def calibrate(my_camera, count, cal_R, cal_G, cal_B):
 					my_image[x,y] = 255,0,0
 				elif (x>=66 and x<=95 and y==53):
 					my_image[x,y] = 255,0,0
-		       #}
-	       #}
 		my_view = Viewer(my_image.width, my_image.height, "Calibration")
 		my_view.displayImage(my_image)
 	print ("Calibrating...")
 	for y in range (22,53):
-       #{
 		for x in range (67,96):
-	       #{
 			red, green, blue = my_image[x,y]
 			cal_R = cal_R + red
 			cal_G = cal_G + green
 			cal_B = cal_B + blue
-	       #}
-       #}
 	cal_R = cal_R/count
 	cal_G = cal_G/count
 	cal_B = cal_B/count
 	time.sleep(3)
 	print "ROBOT READY" 
 	return (cal_R,cal_G,cal_B)
-	
 	
 #To check where the position of the owner is
 def checkTop(my_camera, cal_R, cal_G, cal_B, dir, my_image): #3 regions
@@ -94,15 +85,11 @@ def checkTop(my_camera, cal_R, cal_G, cal_B, dir, my_image): #3 regions
 
 	#Region 1
 	for i in range (95,101):
-       #{
 		for j in range (0, 53):
-	       #{
 			red, green, blue = my_image[j,i]
 			region_red_L = region_red_L + red
 			region_green_L = region_green_L + green
 			region_blue_L = region_blue_L + blue
-	       #}
-       #}
 	#Region 2
 	for i in range (95,101):
 		for j in range (53, 107):
